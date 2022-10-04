@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+  /**
+   * Производит математическую операцию между первыми двумя аргументами, вид
+   * операции передается третьим аргументом.
+   * @param {number} arg1 - первый аргумент (число).
+   * @param {number} arg2 - второй аргумент (число).
+   * @param {string} operation - операцния выполняемаая над 2мя аргументами 
+   * может быть: "+", "-", "*", "/".
+   * @return {number} - Результат выполнения операции, над первыми двумя 
+   * аргументами. Возвращает NaN при некорректно переданных параметрах в 
+   * operation 
+   */
+  function mathOperation(arg1, arg2, operation) {
+    switch (operation) {
+      case "+": return sum(arg1, arg2);
+      case "-": return difference(arg1, arg2);
+      case "*": return multiplication(arg1, arg2);
+      case "/": return division(arg1, arg2);
+      default: return console.log(NaN);
+    }
+  }
+  
+  /**
+   * Получить сумму передаваемых аргументов
+   * @param {number} x - первый аргумент (число).
+   * @param {number} y - второй аргумент (число).
+   * @return {number} - сумма чисел.
+   */
+   function getSum(x, y){
+    return console.log (x + y);
+  }
+  
+  /**
+   * Получить Разность передаваемых аргументов
+   * @param {number} x - первый аргумент (число).
+   * @param {number} y - второй аргумент (число).
+   * @return {number} - Разность чисел.
+   */
+  function getDifference(x, y){
+    if (x > y) {
+      return console.log(x - y);
+    }
+    return console.log(y - x);  
+  }
+
+  /**
+   * Получить Умножение передаваемых аргументов
+   * @param {number} x - первый аргумент (число).
+   * @param {number} y - второй аргумент (число).
+   * @return {number} - Умножение чисел.
+   */
+  function getMultiplication(x, y){
+    return console.log (x * y);
+  }
+
+  /**
+   * Получить Деление передаваемых аргументов
+   * @param {number} x - первый аргумент (число).
+   * @param {number} y - второй аргумент (число).
+   * @return {number} - Деление чисел.
+   */
+  function getDivision(x, y){
+    return console.log (x / y);
+  }
+
+   mathOperation(4, 6, "#")
+</script>
+</body>
+</html>
