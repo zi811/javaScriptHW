@@ -49,7 +49,46 @@
 -->
 <script>
   "use strict";
+  class PostES6{
+    constructor(author, text, date) {
+      this.author = author;
+      this.text = text;
+      this.date = new Date();
+      }
 
+      edit(text){
+        this.text = text;
+        this.date = new Date();
+      }
+  }
+
+    const postES6 = new PostES6('jack', 'post text');
+    console.log(postES6)
+    postES6.edit('New text')
+    console.log(postES6)
+
+
+  
+
+    class AttachedPostES6 extends PostES6 {
+      highlighted = false;
+      constructor(author, text) {
+        super(author, text);
+      }
+
+      makeTextHighlighted(highlighted){
+        this.highlighted = true;
+        this.date = new Date();
+
+      }
+    }
+    
+    const attachedPostES6 = new AttachedPostES6('jack', 'post text');
+    console.log(attachedPostES6)
+    attachedPostES6.makeTextHighlighted()
+    attachedPostES6.edit('Новый текст статьи');
+    console.log(attachedPostES6)
+    
   // Здесь пишем решение, данный комментарий необходимо стереть.
 </script>
 </body>
