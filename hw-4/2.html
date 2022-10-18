@@ -49,6 +49,52 @@
 -->
 <script>
   "use strict";
+
+
+
+
+  function PostES5(author, text) {
+    this.author = author;
+    this.text = text;
+    this.updatedAt = new Date();
+  }
+
+
+  PostES5.prototype.edit = function(text) {
+    this.text = text;
+    this.updatedAt = new Date();
+  };
+
+  const postES5 = new PostES5('jack', 'post text');
+  console.log(postES5);
+  postES5.edit('Новый текст поста');
+  console.log(postES5);
+
+  
+  function AttachedPostES5(author, text) {
+    PostES5.call(this, author, text);
+    this.highlighted = false;
+  }
+
+  AttachedPostES5.prototype = Object.create(PostES5.prototype);
+  AttachedPostES5.prototype.constructor = AttachedPostES5;
+  AttachedPostES5.prototype.makeTextHighlighted = function() {
+    this.highlighted = true;
+    this.updatedAt = new Date();
+  };
+
+  const attachedES5 = new AttachedPostES5('jack', 'post text');
+  console.log(attachedES5);
+  attachedES5.makeTextHighlighted();
+  attachedES5.edit('Новый текст закрепленной поста');
+  console.log(attachedES5);
+  
+  
+  
+  
+  //________________________________________________________________
+
+
   class PostES6{
     constructor(author, text, date) {
       this.author = author;
